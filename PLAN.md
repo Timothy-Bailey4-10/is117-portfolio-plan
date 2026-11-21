@@ -80,7 +80,7 @@ Every check is something a classmate can run: an action plus what they should se
 | Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Updated one-page draft: [resume/Timothy-Bailey-Resume.pdf](resume/Timothy-Bailey-Resume.pdf) (no phone; built by `resume/build_resume.py`). Its portfolio link opens once the site deploys in Build |
 | Contact | `mailto:tsb32@njit.edu` + LinkedIn | From my résumé. Phone number stays **off** the public site and the web résumé |
 | Repo 1 — T-shirt (individual) | https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment · live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/ | Repo and live site open (200, checked 2026-11-21) |
-| Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. Live site returned 404 on 2026-11-21. Turning on GitHub Pages so the case study can link a working demo |
+| Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. Live: https://timothy-bailey4-10.github.io/is-117-business-research/ (GitHub Pages turned on; 200 OK, checked 2026-11-21) |
 | Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-portfolio-plan · live: https://timothy-bailey4-10.github.io/is117-portfolio-plan/ | Repo created and plan pushed 2026-11-21. Site deploys in Build |
 | Optional extra | Career research site: https://timothy-bailey4-10.github.io/is117-ai-career-research/ | Live (200). Could be a 4th card. My private career reflection stays in Canvas only |
 
@@ -240,4 +240,4 @@ Each peer issue follows this path: issue → my decision (implement / investigat
 ## Change and open-issue note (for Canvas)
 
 - **Changed:** first version of the Plan. It carries my FDE career research into a portfolio reader (internship screener), compares a projects-first and a skills-first layout, picks projects-first, and lists 5 stories with Planned checks plus all professional-material destinations.
-- **Open:** peer review from Cs (requested 2026-11-21), turning on GitHub Pages for the group site, and GitHub bio and pinned repos. The updated one-page résumé draft is in `resume/`.
+- **Open:** peer review from Cs (requested 2026-11-21), and GitHub bio and pinned repos. The updated one-page résumé draft is in `resume/`.
