@@ -77,7 +77,7 @@ Every check is something a classmate can run: an action plus what they should se
 |---|---|---|
 | GitHub profile | https://github.com/Timothy-Bailey4-10 | Exists (200 OK, checked 2026-11-21). **TODO:** add a short bio + portfolio link, and pin the 3 repos |
 | LinkedIn profile | https://www.linkedin.com/in/timothy-bailey-20250a281/ | From my résumé. **TODO:** check it opens signed out and shows student status + an IS117 project |
-| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Draft exists (Fall 26 PDF). Needs the updates in "Résumé plan" below before I publish it |
+| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Updated one-page draft: [resume/Timothy-Bailey-Resume.pdf](resume/Timothy-Bailey-Resume.pdf) (no phone; built by `resume/build_resume.py`). **TODO:** I review every line. The portfolio link works only after deploy |
 | Contact | `mailto:tsb32@njit.edu` + LinkedIn | From my résumé. Phone number stays **off** the public site and the web résumé |
 | Repo 1 — T-shirt (individual) | https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment · live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/ | Repo and live site open (200, checked 2026-11-21) |
 | Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. **Live site returns 404** (checked 2026-11-21). **TODO:** enable GitHub Pages; get teammate's full name |
