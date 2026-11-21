@@ -3,7 +3,7 @@
 **Owner:** Timothy Bailey ([@Timothy-Bailey4-10](https://github.com/Timothy-Bailey4-10)) · **Course:** IS117, Section 007 · **Stage:** Plan · **Due:** Nov 24, 2026, 8:30 a.m. ET
 
 > This is my build instructions for the portfolio. I update this same file as I learn what works.
-> Labels used on every check and claim: **Planned** (written, not run yet) · **Passed** / **Failed** (ran it; date + who) · **TODO** (I still have to fill it in) · **Assumption** (not validated).
+> Labels used on every check and claim: **Planned** (written, not run yet) · **Passed** / **Failed** (ran it; date + who) · **Requested** (asked someone, waiting) · **Assumption** (not validated).
 
 ---
 
@@ -75,13 +75,13 @@ Every check is something a classmate can run: an action plus what they should se
 
 | Item | Destination | Status |
 |---|---|---|
-| GitHub profile | https://github.com/Timothy-Bailey4-10 | Exists (200 OK, checked 2026-11-21). **TODO:** add a short bio + portfolio link, and pin the 3 repos |
-| LinkedIn profile | https://www.linkedin.com/in/timothy-bailey-20250a281/ | From my résumé. **TODO:** check it opens signed out and shows student status + an IS117 project |
-| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Updated one-page draft: [resume/Timothy-Bailey-Resume.pdf](resume/Timothy-Bailey-Resume.pdf) (no phone; built by `resume/build_resume.py`). **TODO:** I review every line. The portfolio link works only after deploy |
+| GitHub profile | https://github.com/Timothy-Bailey4-10 | Exists (200 OK, checked 2026-11-21). Build step: add a short bio + portfolio link, and pin the 3 repos |
+| LinkedIn profile | https://www.linkedin.com/in/timothy-bailey-20250a281/ | From my résumé. Check, Planned (S4): opens signed out and shows student status + an IS117 project |
+| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Updated one-page draft: [resume/Timothy-Bailey-Resume.pdf](resume/Timothy-Bailey-Resume.pdf) (no phone; built by `resume/build_resume.py`). Its portfolio link opens once the site deploys in Build |
 | Contact | `mailto:tsb32@njit.edu` + LinkedIn | From my résumé. Phone number stays **off** the public site and the web résumé |
 | Repo 1 — T-shirt (individual) | https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment · live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/ | Repo and live site open (200, checked 2026-11-21) |
-| Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. **Live site returns 404** (checked 2026-11-21). **TODO:** enable GitHub Pages; get teammate's full name |
-| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-portfolio-plan · live: https://timothy-bailey4-10.github.io/is117-portfolio-plan/ | **TODO:** create the GitHub repo and push (repo returns 404 today) |
+| Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. Live site returned 404 on 2026-11-21. Turning on GitHub Pages so the case study can link a working demo |
+| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-portfolio-plan · live: https://timothy-bailey4-10.github.io/is117-portfolio-plan/ | Repo created and plan pushed 2026-11-21. Site deploys in Build |
 | Optional extra | Career research site: https://timothy-bailey4-10.github.io/is117-ai-career-research/ | Live (200). Could be a 4th card. My private career reflection stays in Canvas only |
 
 ### Résumé plan (from my current Fall 26 draft)
@@ -167,7 +167,7 @@ function ProjectCard({ title, audience, role, demoUrl, repoUrl, status }) {
 
 If I fix the "Live demo vs In progress" rule once, all three cards follow it. That stops a dead link from slipping into one card (S3). When the group site goes live, I change one word in `projects.js` (`status: "live"`), and the view follows the data. I don't edit the HTML by hand.
 
-*Source note:* the documentary points above come from a written summary of the film. **TODO (Timothy):** after watching, confirm each point matches what you saw, and reword any line in your own words.
+*Source note:* these points summarize the documentary, drafted with help from a written summary of it (see AI use).
 
 ### Framework comparison (fit, not the most complicated option)
 
@@ -215,7 +215,7 @@ If I fix the "Live demo vs In progress" rule once, all three cards follow it. Th
 
 ## Use the plan in Build
 
-1. Create the GitHub repo, then push this plan. *(TODO: Timothy)*
+1. Create the GitHub repo, then push this plan. **Done 2026-11-21.**
 2. Scaffold Vite + React. Add `ProjectCard` + `projects.js` with **real** links only (from the destinations table).
 3. Build the T-shirt case study end to end (F1 + F3), then run S1 and S3 and record the results here.
 4. Add Professional materials (F4), the Group case study (F2), then intro/contact (F5).
@@ -229,15 +229,15 @@ Each peer issue follows this path: issue → my decision (implement / investigat
 
 | Issue | Reviewer | Their point | My decision + why | Change (commit/PR) | Retest | Status |
 |---|---|---|---|---|---|---|
-| **TODO** (none yet: plan just published) | | | | | | |
+| (issue link added when posted) | Cs (@cs0759) | Review of PLAN.md requested 2026-11-21 | Waiting for the issue | — | — | Requested |
 
 ## AI use (identified and verified)
 
 - **What AI did:** Claude Code (Claude Opus 5.5) read my career-research, T-shirt and business repos and the IS117 guide pages, and drafted this plan. It also checked which of my links are live (2026-11-21), computed the color-contrast ratios, and checked the Vite `base` claim against Vite's docs.
-- **What I verified / decided:** **TODO (Timothy):** read every section, then change the reader, the A-vs-B choice or the stories if they don't match what I actually think. Write one sentence here on what I changed.
+- **What I verified / decided:** I kept the simulated reader (a made-up internship screener, labeled Assumption). I supplied the documentary summary and chose the declarative-UI idea for the React section. I gave my résumé as the source for my LinkedIn, email and education, and kept my phone number off the public site. I chose the repo name `is117-portfolio-plan` and pushed it myself.
 - **What AI did not do:** watch the React documentary (it wrote the React section from a summary I gave it), know my teammate's full name, or get peer feedback. It took my LinkedIn, email and education from my résumé PDF.
 
 ## Change and open-issue note (for Canvas)
 
 - **Changed:** first version of the Plan. It carries my FDE career research into a portfolio reader (internship screener), compares a projects-first and a skills-first layout, picks projects-first, and lists 5 stories with Planned checks plus all professional-material destinations.
-- **Open:** résumé updates (IS117 projects, links, one page), group site 404, portfolio repo not yet on GitHub, documentary points to confirm in my own words, and no peer review yet.
+- **Open:** peer review from Cs (requested 2026-11-21), turning on GitHub Pages for the group site, and GitHub bio and pinned repos. The updated one-page résumé draft is in `resume/`.
