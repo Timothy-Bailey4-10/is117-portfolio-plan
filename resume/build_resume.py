@@ -23,7 +23,7 @@ ACCENT = HexColor("#4a2bd1")  # darker brand violet, high contrast for print
 LINK = "#4a2bd1"
 
 EMAIL = "tsb32@njit.edu"
-PORTFOLIO = "https://timothy-bailey4-10.github.io/is117-porfolio-plan/"
+PORTFOLIO = "https://timothy-bailey4-10.github.io/is117-portfolio-plan/"
 GITHUB = "https://github.com/Timothy-Bailey4-10"
 LINKEDIN = "https://www.linkedin.com/in/timothy-bailey-20250a281/"
 

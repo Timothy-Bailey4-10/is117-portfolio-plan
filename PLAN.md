@@ -81,7 +81,7 @@ Every check is something a classmate can run: an action plus what they should se
 | Contact | `mailto:tsb32@njit.edu` + LinkedIn | From my résumé. Phone number stays **off** the public site and the web résumé |
 | Repo 1 — T-shirt (individual) | https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment · live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/ | Repo and live site open (200, checked 2026-11-21) |
 | Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. **Live site returns 404** (checked 2026-11-21). **TODO:** enable GitHub Pages; get teammate's full name |
-| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-porfolio-plan · live: https://timothy-bailey4-10.github.io/is117-porfolio-plan/ | **TODO:** create the GitHub repo and push (repo returns 404 today) |
+| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-portfolio-plan · live: https://timothy-bailey4-10.github.io/is117-portfolio-plan/ | **TODO:** create the GitHub repo and push (repo returns 404 today) |
 | Optional extra | Career research site: https://timothy-bailey4-10.github.io/is117-ai-career-research/ | Live (200). Could be a 4th card. My private career reflection stays in Canvas only |
 
 ### Résumé plan (from my current Fall 26 draft)
@@ -182,14 +182,14 @@ If I fix the "Live demo vs In progress" rule once, all three cards follow it. Th
 **AI claim checked against official docs:**
 - *Claim (from AI):* "For a GitHub Pages project site, set Vite's `base` to `'/<REPO>/'` and deploy with GitHub Actions."
 - *Official source:* [Vite — Deploying a Static Site → GitHub Pages](https://vite.dev/guide/static-deploy.html#github-pages). It says: if deploying to `https://<USERNAME>.github.io/<REPO>/`, set `base` to `'/<REPO>/'`, and select **GitHub Actions** under Settings → Pages.
-- *Result:* **Confirmed** (checked 2026-11-21). For this repo: `base: '/is117-porfolio-plan/'`.
+- *Result:* **Confirmed** (checked 2026-11-21). For this repo: `base: '/is117-portfolio-plan/'`.
 
 ---
 
 ## 3. Plan hosting and storage
 
 - **Hosting:** GitHub Pages from this repo, deployed by a GitHub Actions workflow on push to `main` (same pattern as my career site's `deploy.yml`).
-- **Check, Planned:** `npm run build` makes `dist/index.html`, and `npm run preview` shows the site with working CSS at `/is117-porfolio-plan/`.
+- **Check, Planned:** `npm run build` makes `dist/index.html`, and `npm run preview` shows the site with working CSS at `/is117-portfolio-plan/`.
 - **Storage:** **none.** No database, no `localStorage`, no cookies, no forms. Contact is a `mailto:` link plus LinkedIn. Nothing to clear.
 - **Optional research (not needed):** Vercel would also work, but GitHub Pages is required and already familiar.
 

@@ -2,9 +2,9 @@
 
 Copy into Canvas after filling every TODO. A GitHub issue does not submit coursework.
 
-**Plan (evolving record):** https://github.com/Timothy-Bailey4-10/is117-porfolio-plan/blob/main/PLAN.md
-**Portfolio repository:** https://github.com/Timothy-Bailey4-10/is117-porfolio-plan
-**Portfolio site:** not deployed yet (Plan stage) — will be https://timothy-bailey4-10.github.io/is117-porfolio-plan/
+**Plan (evolving record):** https://github.com/Timothy-Bailey4-10/is117-portfolio-plan/blob/main/PLAN.md
+**Portfolio repository:** https://github.com/Timothy-Bailey4-10/is117-portfolio-plan
+**Portfolio site:** not deployed yet (Plan stage) — will be https://timothy-bailey4-10.github.io/is117-portfolio-plan/
 **Other project repos:** T-shirt https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment (live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/) · Group https://github.com/Timothy-Bailey4-10/is-117-business-research (team: Timothy Bailey @Timothy-Bailey4-10, TODO-full-name @cs0759)
 **Research it builds on:** https://timothy-bailey4-10.github.io/is117-ai-career-research/
 **Peer review issue / my response / retest:** TODO — link issue #__ , my reply comment, and the retest comment
