@@ -4,7 +4,7 @@ Personal portfolio for IS117 (Section 007). It introduces me and shows three cou
 
 **Current stage:** Plan → see **[PLAN.md](PLAN.md)** (my build instructions; updated as I learn).
 
-**Live site:** _not built yet_ — will be https://timothy-bailey4-10.github.io/is117-plan-for-portfolio/
+**Live site:** _not built yet_ — will be https://timothy-bailey4-10.github.io/is117-porfolio-plan/
 
 ## Related repositories
 | Project | Repository | Live |

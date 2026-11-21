@@ -76,12 +76,25 @@ Every check is something a classmate can run: an action plus what they should se
 | Item | Destination | Status |
 |---|---|---|
 | GitHub profile | https://github.com/Timothy-Bailey4-10 | Exists (200 OK, checked 2026-11-21). **TODO:** add a short bio + portfolio link, and pin the 3 repos |
-| LinkedIn profile | **TODO:** my public profile URL (`https://www.linkedin.com/in/…`) | **TODO** (not found in my files) |
-| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | **TODO:** write it (none exists yet) |
+| LinkedIn profile | https://www.linkedin.com/in/timothy-bailey-20250a281/ | From my résumé. **TODO:** check it opens signed out and shows student status + an IS117 project |
+| Résumé | `/resume/` (web page) + `/resume.pdf` on this site | Draft exists (Fall 26 PDF). Needs the updates in "Résumé plan" below before I publish it |
+| Contact | `mailto:tsb32@njit.edu` + LinkedIn | From my résumé. Phone number stays **off** the public site and the web résumé |
 | Repo 1 — T-shirt (individual) | https://github.com/Timothy-Bailey4-10/is117-t-shirt-assignment · live: https://timothy-bailey4-10.github.io/is117-t-shirt-assignment/ | Repo and live site open (200, checked 2026-11-21) |
 | Repo 2 — Group business (shared) | https://github.com/Timothy-Bailey4-10/is-117-business-research · team: Timothy Bailey (@Timothy-Bailey4-10), Cs (@cs0759) | Repo opens. **Live site returns 404** (checked 2026-11-21). **TODO:** enable GitHub Pages; get teammate's full name |
-| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-plan-for-portfolio · live: https://timothy-bailey4-10.github.io/is117-plan-for-portfolio/ | **TODO:** create the GitHub repo and push (repo returns 404 today) |
+| Repo 3 — Portfolio (this site) | https://github.com/Timothy-Bailey4-10/is117-porfolio-plan · live: https://timothy-bailey4-10.github.io/is117-porfolio-plan/ | **TODO:** create the GitHub repo and push (repo returns 404 today) |
 | Optional extra | Career research site: https://timothy-bailey4-10.github.io/is117-ai-career-research/ | Live (200). Could be a 4th card. My private career reflection stays in Canvas only |
+
+### Résumé plan (from my current Fall 26 draft)
+
+The current draft has my education (B.S. Business & Information Systems, NJIT, expected May 2028), clubs, volunteering and early HTML/Python projects. To match the course résumé checklist:
+- **Add** portfolio, GitHub (`github.com/Timothy-Bailey4-10`) and LinkedIn links to the header.
+- **Add 2 IS117 course projects at the top of Projects**, labeled "Course project", using action + what I did + evidence:
+  - *Jersey Givers T-shirt storefront | HTML, CSS, JS | Fall 2026:* built a branded storefront and live style guide, and checked it with automated browser tests (format, lint, server and Chromium/axe checks passing).
+  - *Solo Software Research (group) | HTML, CSS | Fall 2026:* name my own pages and contribution, separate from my teammate's.
+- **Fit to one page:** one line currently spills onto page 2. Shorten older high-school projects (combine the three 2023 HTML/CSS sites into one line) before shrinking text.
+- **Tighten claims:** "increasing engagement" (social media) needs a real number or should be cut. Fix the trailing comma and capitalization in the Student Senate bullet.
+- **Web version leaves out my phone number.** The PDF I send in applications can keep it.
+- **Check, Planned:** the exported PDF opens, its text is selectable, every link works, and it reads on a phone.
 
 ### Brand and honest persuasion (carried forward)
 
@@ -98,11 +111,40 @@ Every check is something a classmate can run: an action plus what they should se
 
 ## 2. Research how to build it
 
-### One React idea, using my site: **components and props**
+### One React idea, using my site: **declarative UI, where the view is a function of state**
 
-> **TODO (Timothy, required):** Watch the [React documentary](https://www.youtube.com/watch?v=8pDqJVdNa44), then add 1–2 sentences here **in your own words** about what it said about components. Example: why the React team built React, and the problem with updating the page by hand.
+**What the [React documentary](https://www.youtube.com/watch?v=8pDqJVdNa44) showed:** before React, Facebook engineers updated the page by hand. They found an element and changed it (manual DOM mutation), and the more things that could change, the easier it was for the page to get out of sync. Jordan Walke's idea flipped this around: describe what the page *should look like* for the current data, `(state) => view`, and let React re-render and work out the minimum changes. When React was shown at JSConf 2013, people were skeptical, partly because JSX mixed markup into JavaScript. That broke the "best practice" of keeping HTML and JS in separate files. The React team argued the better boundary is the **component**, not the file type. Good developer experience, tooling and gradual adoption won people over.
 
-A **component** is a reusable function that returns a piece of UI. **Props** are the inputs you pass into it. On my portfolio, the three project cards are one `ProjectCard` component used three times:
+**Where this shows up on my site: the mobile menu button.** On a phone, the nav collapses behind a "Menu" button. That gives the page one piece of **state**: `menuOpen` is either `true` or `false`.
+
+*Imperative (the old way):* every click handler has to remember to update **everything** by hand.
+```js
+button.addEventListener("click", () => {
+  nav.classList.toggle("open");
+  // easy to forget: screen readers need this to stay in sync
+  button.setAttribute("aria-expanded", nav.classList.contains("open"));
+  button.textContent = nav.classList.contains("open") ? "Close" : "Menu";
+});
+```
+
+*Declarative (React):* I describe the menu for each state once. React keeps the class, the `aria-expanded` and the label in sync on every render.
+```jsx
+function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);   // state
+  return (
+    <nav className={menuOpen ? "open" : ""}>         {/* view = f(state) */}
+      <button aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? "Close" : "Menu"}
+      </button>
+      <a href="#projects">Projects</a> <a href="#materials">Résumé & profiles</a>
+    </nav>
+  );
+}
+```
+
+**Why it matters for my reader:** Dana is often on a phone (S1), and the planned keyboard and screen-reader check (section 4) needs `aria-expanded` to tell the truth. With `(state) => view`, the button can't say "closed" while the menu is open.
+
+**The same idea with components and props:** the documentary's "component as the boundary" point is why the three project cards are one `ProjectCard` component used three times. The data goes in as props, and the card's look and logic live together:
 
 ```jsx
 function ProjectCard({ title, audience, role, demoUrl, repoUrl, status }) {
@@ -123,7 +165,9 @@ function ProjectCard({ title, audience, role, demoUrl, repoUrl, status }) {
 // projects.map(p => <ProjectCard key={p.title} {...p} />)
 ```
 
-**Why it matters for my readers:** if I fix the "Live demo vs In progress" rule once, all three cards follow it. That stops a dead link from slipping into one card (S3). **State** would only matter if I add the "filter by skill" feature later: the selected skill would be state, and changing it would re-render the list.
+If I fix the "Live demo vs In progress" rule once, all three cards follow it. That stops a dead link from slipping into one card (S3). When the group site goes live, I change one word in `projects.js` (`status: "live"`), and the view follows the data. I don't edit the HTML by hand.
+
+*Source note:* the documentary points above come from a written summary of the film. **TODO (Timothy):** after watching, confirm each point matches what you saw, and reword any line in your own words.
 
 ### Framework comparison (fit, not the most complicated option)
 
@@ -138,14 +182,14 @@ function ProjectCard({ title, audience, role, demoUrl, repoUrl, status }) {
 **AI claim checked against official docs:**
 - *Claim (from AI):* "For a GitHub Pages project site, set Vite's `base` to `'/<REPO>/'` and deploy with GitHub Actions."
 - *Official source:* [Vite — Deploying a Static Site → GitHub Pages](https://vite.dev/guide/static-deploy.html#github-pages). It says: if deploying to `https://<USERNAME>.github.io/<REPO>/`, set `base` to `'/<REPO>/'`, and select **GitHub Actions** under Settings → Pages.
-- *Result:* **Confirmed** (checked 2026-11-21). For this repo: `base: '/is117-plan-for-portfolio/'`.
+- *Result:* **Confirmed** (checked 2026-11-21). For this repo: `base: '/is117-porfolio-plan/'`.
 
 ---
 
 ## 3. Plan hosting and storage
 
 - **Hosting:** GitHub Pages from this repo, deployed by a GitHub Actions workflow on push to `main` (same pattern as my career site's `deploy.yml`).
-- **Check, Planned:** `npm run build` makes `dist/index.html`, and `npm run preview` shows the site with working CSS at `/is117-plan-for-portfolio/`.
+- **Check, Planned:** `npm run build` makes `dist/index.html`, and `npm run preview` shows the site with working CSS at `/is117-porfolio-plan/`.
 - **Storage:** **none.** No database, no `localStorage`, no cookies, no forms. Contact is a `mailto:` link plus LinkedIn. Nothing to clear.
 - **Optional research (not needed):** Vercel would also work, but GitHub Pages is required and already familiar.
 
@@ -156,12 +200,12 @@ function ProjectCard({ title, audience, role, demoUrl, repoUrl, status }) {
 - **Images:** project screenshots have alt text that says what the screenshot shows ("Jersey Givers storefront hero with size buttons"), not "screenshot".
 - **One visitor mistake + recovery:** the visitor taps a demo that isn't live yet. The card shows "Demo in progress" instead of a dead link. A mistyped URL lands on a 404 page with "Back to projects".
 - **Permissions:** screenshots are of my own projects. Inter is SIL OFL. The T-shirt logo uses Census map data (public domain), as already recorded in that repo.
-- **Privacy / data minimization:** no phone number or home address. Only a professional email (**TODO:** choose which one) and LinkedIn. The site collects nothing. My private career reflection stays in Canvas, not on this public site.
+- **Privacy / data minimization:** no phone number or home address. Only my school email (tsb32@njit.edu) and LinkedIn. The site collects nothing. My private career reflection stays in Canvas, not on this public site.
 
 ## 5. Plan how people will find it and how I'll know it works
 
 - **Page title:** `Timothy Bailey — Student builder | IS117 Portfolio`
-- **Meta description:** "NJIT student building web projects for real users, aiming for software internships on AI teams. Three course projects with live demos, code and checks."
+- **Meta description:** "NJIT Business & Information Systems student (Class of 2028) building web projects for real users, aiming for software internships on AI teams. Three course projects with live demos, code and checks."
 - **Link preview (Open Graph):** that title and description, with an image of the hero (name + 3 project cards), 1200×630.
 - **One social post (draft):** "I built a portfolio that shows three course projects, what I personally did in each, and the checks behind them. Feedback welcome, especially from people hiring for AI-team internships: <link>"
 - **After clicking:** the reader should open one case study, then the résumé or LinkedIn.
@@ -191,9 +235,9 @@ Each peer issue follows this path: issue → my decision (implement / investigat
 
 - **What AI did:** Claude Code (Claude Opus 5.5) read my career-research, T-shirt and business repos and the IS117 guide pages, and drafted this plan. It also checked which of my links are live (2026-11-21), computed the color-contrast ratios, and checked the Vite `base` claim against Vite's docs.
 - **What I verified / decided:** **TODO (Timothy):** read every section, then change the reader, the A-vs-B choice or the stories if they don't match what I actually think. Write one sentence here on what I changed.
-- **What AI did not do:** watch the React documentary, know my LinkedIn URL or my teammate's full name, or get peer feedback.
+- **What AI did not do:** watch the React documentary (it wrote the React section from a summary I gave it), know my teammate's full name, or get peer feedback. It took my LinkedIn, email and education from my résumé PDF.
 
 ## Change and open-issue note (for Canvas)
 
 - **Changed:** first version of the Plan. It carries my FDE career research into a portfolio reader (internship screener), compares a projects-first and a skills-first layout, picks projects-first, and lists 5 stories with Planned checks plus all professional-material destinations.
-- **Open:** LinkedIn URL, résumé, group site 404, portfolio repo not yet on GitHub, React-documentary sentence, and no peer review yet.
+- **Open:** résumé updates (IS117 projects, links, one page), group site 404, portfolio repo not yet on GitHub, documentary points to confirm in my own words, and no peer review yet.
